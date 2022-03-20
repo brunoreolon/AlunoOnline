@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AlunoOnline">
         <activity
+            android:name=".ListaAlunoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CadastroProfessorActivity"
+            android:exported="false" />
+        <activity
             android:name=".CadastroAlunoActivity"
             android:exported="false" />
         <activity

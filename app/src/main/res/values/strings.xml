@@ -5,4 +5,5 @@
     <string name="cpf">Cpf</string>
     <string name="dtNasc">Dt. Nascimento</string>
     <string name="dtMatricula">Dt. Matrícula</string>
+    <string name="addAluno">Add Aluno</string>
 </resources>

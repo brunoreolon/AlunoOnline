@@ -3,10 +3,14 @@ package com.example.alunoonline;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.DatePicker;
 import android.widget.LinearLayout;
 
 import com.example.alunoonline.dao.AlunoDao;
@@ -14,6 +18,8 @@ import com.example.alunoonline.model.Aluno;
 import com.example.alunoonline.util.CpfMask;
 import com.example.alunoonline.util.Util;
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.Calendar;
 
 public class CadastroAlunoActivity extends AppCompatActivity {
 
@@ -24,7 +30,10 @@ public class CadastroAlunoActivity extends AppCompatActivity {
     private TextInputEditText edDtMatAluno;
     private LinearLayout lnCadastroAlunos;
 
-
+    private int vAno;
+    private int vMes;
+    private int vDia;
+    private View dataSeleionada;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +47,49 @@ public class CadastroAlunoActivity extends AppCompatActivity {
         edDtMatAluno = findViewById(R.id.edDtMatAluno);
         lnCadastroAlunos = findViewById(R.id.lnCadastroAlunos);
 
+        edDtNascAluno.setFocusable(false);
+        edDtMatAluno.setFocusable(false);
+
         edCpfAluno.addTextChangedListener(CpfMask.insert(edCpfAluno));
 
+    }
+
+    private void setDataAtual(){
+        Calendar calendar = Calendar.getInstance();
+        vDia = calendar.get(Calendar.DAY_OF_MONTH);
+        vMes = calendar.get(Calendar.MONTH);
+        vAno = calendar.get(Calendar.YEAR);
+    }
+
+    public void selecionarData(View view) {
+        dataSeleionada = view;
+        showDialog(0);
+    }
+
+    private DatePickerDialog.OnDateSetListener setDatePicker = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+            vAno = year;
+            vMes = month;
+            vDia = day;
+
+            atualizaData();
+        }
+    };
+
+    private void atualizaData() {
+        TextInputEditText edit = (TextInputEditText) dataSeleionada;
+        edit.setText(new StringBuilder()
+                .append(vDia).append("/")
+                .append(vMes + 1).append("/")
+                .append(vAno));
+    }
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        setDataAtual();
+        return new DatePickerDialog(this, setDatePicker,
+                vAno, vMes, vDia);
     }
 
     @Override
@@ -108,17 +158,13 @@ public class CadastroAlunoActivity extends AppCompatActivity {
 //        aluno.setCurso(spCursos.getSelectedItem().toString());
 //        aluno.setPeriodo(spPeriodo.getSelectedItem().toString());
 
-        if(AlunoDao.salvar(aluno) > 0){
-            Util.customSnackBar(lnCadastroAlunos,
-                    "Aluno (" + aluno.getNome() + ") " +
-                            "Salvo com sucesso!",
-                    1);
+        if(AlunoDao.salvar(aluno) > 0) {
+
+            setResult(RESULT_OK);
             finish();
         }else
-            Util.customSnackBar(lnCadastroAlunos,
-                    "Erro ao salvar o aluno (" + aluno.getNome() + ") " +
-                            "Verifique o log",
-                    0);
+            Util.customSnackBar(lnCadastroAlunos, "Erro ao salvar o aluno ("+aluno.getNome()+") " +
+                    "verifique o log", 0);
     }
 
 

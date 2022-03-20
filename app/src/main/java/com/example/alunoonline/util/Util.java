@@ -18,17 +18,17 @@ public class Util {
     public static void customSnackBar(View view, String msg, int tipo){
         Snackbar snackbar = Snackbar.make(view, msg, Snackbar.LENGTH_LONG);
         View viewSnack = snackbar.getView();
-//        TextView tv = (TextView) viewSnack.findViewById(R.id.snackbar_text);
+        TextView tv = (TextView) viewSnack.findViewById(R.id.snackbar_text);
 
         if (tipo == 0){
-//            tv.setCompoundDrawablesRelativeWithIntrinsicBounds(R.mipmap.ic_cancel,
-//                    0,0 , 0);
+            tv.setCompoundDrawablesRelativeWithIntrinsicBounds(R.mipmap.ic_cancelar,
+                    0,0 , 0);
 
         }
 
         if (tipo == 1){
-//            tv.setCompoundDrawablesRelativeWithIntrinsicBounds(R.mipmap.ic_confirm,
-//                    0,0 , 0);
+            tv.setCompoundDrawablesRelativeWithIntrinsicBounds(R.mipmap.ic_confirmar,
+                    0,0 , 0);
         }
 
         snackbar.show();
