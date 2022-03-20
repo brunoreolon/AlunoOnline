@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AlunoOnline</string>
+    <string name="ra">Ra</string>
+    <string name="nome">Nome</string>
+    <string name="cpf">Cpf</string>
+    <string name="dtNasc">Dt. Nascimento</string>
+    <string name="dtMatricula">Dt. Matrícula</string>
+</resources>
