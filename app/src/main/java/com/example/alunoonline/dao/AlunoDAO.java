@@ -7,7 +7,7 @@ import com.example.alunoonline.model.Aluno;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlunoDao {
+public class AlunoDAO {
 
     public static long salvar(Aluno aluno){
         try {

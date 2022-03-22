@@ -1,4 +1,4 @@
-package com.example.alunoonline;
+package com.example.alunoonline.activity.aluno;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,8 +14,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 
+import com.example.alunoonline.R;
 import com.example.alunoonline.adapters.AlunoAdapter;
-import com.example.alunoonline.dao.AlunoDao;
+import com.example.alunoonline.dao.AlunoDAO;
 import com.example.alunoonline.model.Aluno;
 import com.example.alunoonline.util.Util;
 
@@ -39,7 +40,7 @@ public class ListaAlunoActivity extends AppCompatActivity {
 
     public void atualizaListaAlunos(){
         List<Aluno> listaAlunos = new ArrayList<>();
-        listaAlunos = AlunoDao.retornaAlunos("", new String[]{}, "nome asc");
+        listaAlunos = AlunoDAO.retornaAlunos("", new String[]{}, "nome asc");
         Log.e("PHS", "Tamanho da lista: " + listaAlunos.size());
 
         rvListaAlunos = findViewById(R.id.rvListaAlunos);

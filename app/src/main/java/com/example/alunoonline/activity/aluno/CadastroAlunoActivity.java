@@ -1,10 +1,11 @@
-package com.example.alunoonline;
+package com.example.alunoonline.activity.aluno;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,7 +14,8 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
 
-import com.example.alunoonline.dao.AlunoDao;
+import com.example.alunoonline.R;
+import com.example.alunoonline.dao.AlunoDAO;
 import com.example.alunoonline.model.Aluno;
 import com.example.alunoonline.util.CpfMask;
 import com.example.alunoonline.util.Util;
@@ -95,7 +97,7 @@ public class CadastroAlunoActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_cadastro, menu);
+        menuInflater.inflate(R.menu.menu_cadastrar, menu);
 
         return true;
     }
@@ -155,18 +157,14 @@ public class CadastroAlunoActivity extends AppCompatActivity {
         aluno.setCpf(edCpfAluno.getText().toString());
         aluno.setDtNasc(edDtNascAluno.getText().toString());
         aluno.setDtMatricula(edDtMatAluno.getText().toString());
-//        aluno.setCurso(spCursos.getSelectedItem().toString());
-//        aluno.setPeriodo(spPeriodo.getSelectedItem().toString());
 
-        if(AlunoDao.salvar(aluno) > 0) {
-
+        if(AlunoDAO.salvar(aluno) > 0) {
             setResult(RESULT_OK);
             finish();
         }else
             Util.customSnackBar(lnCadastroAlunos, "Erro ao salvar o aluno ("+aluno.getNome()+") " +
                     "verifique o log", 0);
     }
-
 
     private void limparCampos() {
         edRaAluno.setText("");

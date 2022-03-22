@@ -4,39 +4,174 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageButtonAluno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="15dp"
-        android:onClick="cadastrarAluno"
-        android:src="@mipmap/ic_cad_aluno" />
-
-<!--    <ImageView-->
-<!--        android:id="@+id/imageButtonProf"-->
-<!--        android:layout_width="wrap_content"-->
+<!--    &lt;!&ndash; Cadastros &ndash;&gt;-->
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
-<!--        android:elevation="15dp"-->
-<!--        android:onClick="cadastrarProfessor"-->
-<!--        android:src="@mipmap/ic_cad_prof" />-->
-
-<!--    <ImageView-->
-<!--        android:id="@+id/imageButtonDisciplina"-->
-<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_marginLeft="5dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:text="Cadastros:"-->
+<!--        android:textStyle="bold" />-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
-<!--        android:elevation="15dp"-->
-<!--        android:onClick="cadastrarProfessor"-->
-<!--        android:src="@mipmap/ic_cad_disciplina" />-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="left">-->
 
-<!--    <ImageView-->
-<!--        android:id="@+id/imageButtonTurma"-->
-<!--        android:layout_width="wrap_content"-->
+<!--        <TextView-->
+<!--            android:id="@+id/imageButtonAluno"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:drawableTop="@mipmap/ic_cad_aluno"-->
+<!--            android:onClick="cadastrarAluno"-->
+<!--            android:text="Aluno"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textSize="10dp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/imageButtonProf"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:drawableTop="@mipmap/ic_cad_prof"-->
+<!--            android:onClick="cadastrarAluno"-->
+<!--            android:text="Professor"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textSize="10dp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--        <TextView-->
+<!--                android:id="@+id/imageButtonDisciplina"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginRight="10dp"-->
+<!--                android:drawableTop="@mipmap/ic_cad_disciplina"-->
+<!--                android:onClick="cadastrarAluno"-->
+<!--                android:text="Disciplina"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textSize="10dp"-->
+<!--                android:textStyle="bold" />-->
+
+<!--        <TextView-->
+<!--                android:id="@+id/imageButtonTurma"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginRight="10dp"-->
+<!--                android:drawableTop="@mipmap/ic_cad_turma"-->
+<!--                android:onClick="cadastrarAluno"-->
+<!--                android:text="Turma"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textSize="10dp"-->
+<!--                android:textStyle="bold" />-->
+
+<!--    </LinearLayout>-->
+
+<!--    &lt;!&ndash; Lançamentos &ndash;&gt;-->
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
-<!--        android:elevation="15dp"-->
-<!--        android:onClick="cadastrarProfessor"-->
-<!--        android:src="@mipmap/ic_cad_turma" />-->
+<!--        android:layout_marginLeft="5dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:text="Lançamentos:"-->
+<!--        android:textStyle="bold" />-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="left">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/imageButtonLancNotas"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:drawableTop="@mipmap/ic_cad_aluno"-->
+<!--            android:onClick="cadastrarAluno"-->
+<!--            android:text="Notas"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textSize="10dp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/imageButtonLancFrequencias"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:drawableTop="@mipmap/ic_cad_aluno"-->
+<!--            android:onClick="cadastrarAluno"-->
+<!--            android:text="Frequençias"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textSize="10dp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--    </LinearLayout>-->
+
+<!--    &lt;!&ndash; Listagens &ndash;&gt;-->
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="5dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:text="Listagens:"-->
+<!--        android:textStyle="bold" />-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="left">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/imageButtonListaAluno"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:drawableTop="@mipmap/ic_cad_aluno"-->
+<!--            android:onClick="cadastrarAluno"-->
+<!--            android:text="Alunos"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textSize="10dp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/imageButtonListaProf"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:drawableTop="@mipmap/ic_cad_aluno"-->
+<!--            android:onClick="cadastrarAluno"-->
+<!--            android:text="Professores"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textSize="10dp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/imageButtonListaDisciplinas"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:drawableTop="@mipmap/ic_cad_aluno"-->
+<!--            android:onClick="cadastrarAluno"-->
+<!--            android:text="Discilpinas"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textSize="10dp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/imageButtonListaTurmas"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:drawableTop="@mipmap/ic_cad_aluno"-->
+<!--            android:onClick="cadastrarAluno"-->
+<!--            android:text="Turmas"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textSize="10dp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--    </LinearLayout>-->
 
 </LinearLayout>

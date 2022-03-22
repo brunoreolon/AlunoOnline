@@ -4,7 +4,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.alunoonline.R;
-//import com.example.cadastroaluno.R;
 import com.google.android.material.snackbar.Snackbar;
 
 public class Util {
@@ -23,9 +22,7 @@ public class Util {
         if (tipo == 0){
             tv.setCompoundDrawablesRelativeWithIntrinsicBounds(R.mipmap.ic_cancelar,
                     0,0 , 0);
-
         }
-
         if (tipo == 1){
             tv.setCompoundDrawablesRelativeWithIntrinsicBounds(R.mipmap.ic_confirmar,
                     0,0 , 0);
