@@ -11,6 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AlunoOnline">
         <activity
+            android:name=".activity.turma.ListaTurmaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.turma.CadastroTurmaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.disciplina.ListaDisciplinaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.disciplina.CadastroDisciplinaActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.professor.ListaProfessorActivity"
             android:exported="false" />
         <activity
