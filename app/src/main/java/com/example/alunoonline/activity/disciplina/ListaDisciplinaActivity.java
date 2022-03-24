@@ -81,8 +81,6 @@ public class ListaDisciplinaActivity extends AppCompatActivity {
         if(resultCode == RESULT_OK){
             Util.customSnackBar(lnListaDisciplinas, "Disciplina salva com sucesso!", 1);
         }
-
         atualizaListaDisciplinas();
     }
-
 }

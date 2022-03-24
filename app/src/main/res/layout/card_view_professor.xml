@@ -8,7 +8,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/cvAluno"
+        android:id="@+id/cvProfessor"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
         app:cardUseCompatPadding="true">
@@ -28,7 +28,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/edNomeAluno"
+                    android:id="@+id/edNomeProfessor"
                     android:focusable="false"
                     android:backgroundTint="@color/white"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -48,7 +48,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/edRaAluno"
+                        android:id="@+id/edRaProfessor"
                         android:focusable="false"
                         android:backgroundTint="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -62,7 +62,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/edCpfAluno"
+                        android:id="@+id/edCpfProfessor"
                         android:focusable="false"
                         android:backgroundTint="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -120,7 +120,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/edDtMatricula"
+                        android:id="@+id/edDtMatriculaProfessor"
                         android:focusable="false"
                         android:backgroundTint="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -134,7 +134,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/edDtNascAluno"
+                        android:id="@+id/edDtNascProfessor"
                         android:focusable="false"
                         android:backgroundTint="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>

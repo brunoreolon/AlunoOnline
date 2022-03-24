@@ -98,7 +98,7 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
             setResult(RESULT_OK);
             finish();
         }else
-            Util.customSnackBar(lnCadastroDisciplinas, "Erro ao salvar o aluno ("+disciplina.getNome()+") " +
+            Util.customSnackBar(lnCadastroDisciplinas, "Erro ao salvar a disciplina ("+disciplina.getNome()+") " +
                     "verifique o log", 0);
     }
 

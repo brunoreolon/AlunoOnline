@@ -35,16 +35,16 @@ public class DisciplinaAdapter extends RecyclerView.Adapter<DisciplinaAdapter.Di
 
             edCodigoDisciplina = (TextInputEditText)itemView.findViewById(R.id.edCodigoDisciplina);
             edNomeDisciplina = (TextInputEditText)itemView.findViewById(R.id.edNomeDisciplina);
-            edProfessor =  (TextInputEditText)itemView.findViewById(R.id.edProfessor);
+            edProfessor =  (TextInputEditText)itemView.findViewById(R.id.edNomeProfessor);
             edCargaHoraria = (TextInputEditText)itemView.findViewById(R.id.edCargaHoraria);
         }
     }
 
     @NonNull
     @Override
-    public DisciplinaAdapter.DisciplinaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public DisciplinaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.card_view, parent, false);
+                .inflate(R.layout.card_view_disciplina, parent, false);
 
         DisciplinaAdapter.DisciplinaViewHolder viewHolder = new DisciplinaAdapter.DisciplinaViewHolder(view);
 
@@ -52,13 +52,13 @@ public class DisciplinaAdapter extends RecyclerView.Adapter<DisciplinaAdapter.Di
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DisciplinaAdapter.DisciplinaViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull DisciplinaViewHolder holder, int position) {
         Disciplina disciplina = listaDisciplinas.get(position);
 
         holder.edCodigoDisciplina.setText(String.valueOf(disciplina.getCodigo()));
         holder.edNomeDisciplina.setText(disciplina.getNome());
         holder.edProfessor.setText(disciplina.getProfessor());
-        holder.edCargaHoraria.setText(disciplina.getCargaHoraria());
+        holder.edCargaHoraria.setText(String.valueOf(disciplina.getCargaHoraria()));
     }
 
     @Override

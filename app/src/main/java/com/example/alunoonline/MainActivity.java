@@ -11,8 +11,12 @@ import android.view.MenuItem;
 
 import com.example.alunoonline.activity.aluno.CadastroAlunoActivity;
 import com.example.alunoonline.activity.aluno.ListaAlunoActivity;
+import com.example.alunoonline.activity.disciplina.CadastroDisciplinaActivity;
+import com.example.alunoonline.activity.disciplina.ListaDisciplinaActivity;
 import com.example.alunoonline.activity.professor.CadastroProfessorActivity;
 import com.example.alunoonline.activity.professor.ListaProfessorActivity;
+import com.example.alunoonline.activity.turma.CadastroTurmaActivity;
+import com.example.alunoonline.activity.turma.ListaTurmaActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,12 +48,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.mn_disciplina:
-//                intent = new Intent(this, CadastrodisciplinaActivity.class);
-//                startActivity(intent);
+                intent = new Intent(this, ListaDisciplinaActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.mn_turma:
-//                intent = new Intent(this, CadastroTurmaActivity.class);
-//                startActivity(intent);
+                intent = new Intent(this, ListaTurmaActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.mn_nota:
 //                intent = new Intent(this, CadastroNotaActivity.class);

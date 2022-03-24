@@ -34,11 +34,11 @@ public class ProfessorAdapter extends RecyclerView.Adapter<ProfessorAdapter.Prof
         public ProfessorViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            edRaProfessor = (TextInputEditText)itemView.findViewById(R.id.edRaAluno);
-            edNomeProfessor = (TextInputEditText)itemView.findViewById(R.id.edNomeAluno);
-            edCpfProfessor =  (TextInputEditText)itemView.findViewById(R.id.edCpfAluno);
-            edDtMatricula = (TextInputEditText)itemView.findViewById(R.id.edDtMatricula);
-            edDtNasc = (TextInputEditText)itemView.findViewById(R.id.edDtNascAluno);
+            edRaProfessor = (TextInputEditText)itemView.findViewById(R.id.edRaProfessor);
+            edNomeProfessor = (TextInputEditText)itemView.findViewById(R.id.edNomeProfessor);
+            edCpfProfessor =  (TextInputEditText)itemView.findViewById(R.id.edCpfProfessor);
+            edDtMatricula = (TextInputEditText)itemView.findViewById(R.id.edDtMatriculaProfessor);
+            edDtNasc = (TextInputEditText)itemView.findViewById(R.id.edDtNascProfessor);
 
         }
     }
@@ -47,7 +47,7 @@ public class ProfessorAdapter extends RecyclerView.Adapter<ProfessorAdapter.Prof
     @Override
     public ProfessorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.card_view, parent, false);
+                .inflate(R.layout.card_view_professor, parent, false);
 
         ProfessorAdapter.ProfessorViewHolder viewHolder = new ProfessorAdapter.ProfessorViewHolder(view);
 
