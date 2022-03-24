@@ -6,7 +6,14 @@
     <string name="dtNasc">Dt. Nascimento</string>
     <string name="dtMatricula">Dt. Matrícula</string>
     <string name="addAluno">Add Aluno</string>
-    <string name="codigo">Codigo</string>
-    <string name="professor">Professor</string>
+    <string name="codigo">Código</string>
+    <string name="professor">Nome do Professor</string>
     <string name="cargaHorario">Carga Horária</string>
+    <string name="curso">Curso</string>
+    <string name="periodo">Periodo</string>
+    <string name="selecionePeriodo">Selecione o Periodo</string>
+    <string name="turno">Turno</string>
+    <string name="selecioneTurno">Selecione o Turno</string>
+    <string name="selecioneCurso">Selecione o Curso</string>
+
 </resources>

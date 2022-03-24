@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.turma.CadastroTurmaActivity"
+    android:orientation="vertical"
+    android:id="@+id/lnCadastroTurmas">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="@string/codigo">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edCodigoTurma"
+            android:inputType="number"
+            android:backgroundTint="@color/white"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spCurso"
+        app:ms_arrowColor="?attr/colorPrimary"
+        app:ms_floatingLabelText="@string/curso"
+        app:ms_hint="@string/selecioneCurso"
+        app:ms_multiline="false"
+        android:layout_margin="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/spPeriodo"
+            app:ms_arrowColor="?attr/colorPrimary"
+            app:ms_floatingLabelText="@string/periodo"
+            app:ms_hint="@string/selecionePeriodo"
+            app:ms_multiline="false"
+            android:layout_margin="10dp"/>
+
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/spTurno"
+            app:ms_arrowColor="?attr/colorPrimary"
+            app:ms_floatingLabelText="@string/turno"
+            app:ms_hint="@string/selecioneTurno"
+            app:ms_multiline="false"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+
+
+</LinearLayout>
