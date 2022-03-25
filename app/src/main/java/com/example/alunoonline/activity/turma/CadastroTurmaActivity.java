@@ -137,6 +137,9 @@ public class CadastroTurmaActivity extends AppCompatActivity {
     private void salvarTurma() {
         Turma turma = new Turma();
         turma.setCodigo(Integer.parseInt(edCodigoTurma.getText().toString()));
+        turma.setCurso(spCursos.getSelectedItem().toString());
+        turma.setPeriodo(spPeriodo.getSelectedItem().toString());
+        turma.setTurno(spTurno.getSelectedItem().toString());
 
         if(TurmaDAO.salvar(turma) > 0) {
             setResult(RESULT_OK);
