@@ -14,7 +14,8 @@ public class Aluno extends SugarRecord {
     private String curso;
     private String periodo;
 
-    public Aluno(){ }
+    public Aluno() {
+    }
 
     public Aluno(int ra, String nome, String cpf, String dtNasc, String dtMatricula, String curso, String periodo) {
         this.ra = ra;
