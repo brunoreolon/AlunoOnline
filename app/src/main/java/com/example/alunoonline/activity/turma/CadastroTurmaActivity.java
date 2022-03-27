@@ -7,15 +7,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 
 import com.example.alunoonline.R;
-import com.example.alunoonline.dao.DisciplinaDAO;
 import com.example.alunoonline.dao.TurmaDAO;
-import com.example.alunoonline.model.Disciplina;
 import com.example.alunoonline.model.Turma;
 import com.example.alunoonline.util.Util;
 import com.google.android.material.textfield.TextInputEditText;
@@ -27,8 +23,8 @@ public class CadastroTurmaActivity extends AppCompatActivity {
     private TextInputEditText edCodigoTurma;
     private LinearLayout lnCadastroTurmas;
     private MaterialSpinner spCursos;
-    private MaterialSpinner spPeriodo;
     private MaterialSpinner spTurno;
+    private MaterialSpinner spRegime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +39,8 @@ public class CadastroTurmaActivity extends AppCompatActivity {
 
     private void iniciaSpinners() {
         spCursos = findViewById(R.id.spCurso);
-        spPeriodo = findViewById(R.id.spPeriodo);
         spTurno = findViewById(R.id.spTurno);
+        spRegime = findViewById(R.id.spRegime);
 
         String cursos[] = new String[]{
                 "Análise e Desenv. Sistemas",
@@ -55,51 +51,29 @@ public class CadastroTurmaActivity extends AppCompatActivity {
                 "Nutrição"
         };
 
-        String periodos[] = new String[]{
-                "1ª Série",
-                "2ª Série",
-                "3ª Série",
-                "4ª Série"
-        };
-
         String turnos[] = new String[]{
                 "Matutino",
                 "Vespertino",
                 "Noturno"
         };
 
+        String regimes[] = new String[]{
+                "Semestral",
+                "Anual",
+        };
+
         ArrayAdapter adapterCursos = new ArrayAdapter(this,
                 android.R.layout.simple_list_item_1, cursos);
-        ArrayAdapter adapterPeriodo = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1, periodos);
+
         ArrayAdapter adapterTurno = new ArrayAdapter(this,
                 android.R.layout.simple_list_item_1, turnos);
 
+        ArrayAdapter adapterRegime = new ArrayAdapter(this,
+                android.R.layout.simple_list_item_1, regimes);
+
         spCursos.setAdapter(adapterCursos);
-        spPeriodo.setAdapter(adapterPeriodo);
         spTurno.setAdapter(adapterTurno);
-
-        //Ação ao selecionar o item da lista
-        spCursos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (i == 0) {
-
-                    /*Button btADS = new Button(getBaseContext());
-                    btADS.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                             LinearLayout.LayoutParams.WRAP_CONTENT));
-                    btADS.setText("Botao ADS");
-                    btADS.setBackgroundColor(getColor(R.color.teal_200));
-
-                    llPrincipal.addView(btADS);*/
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
+        spRegime.setAdapter(adapterRegime);
     }
 
     @Override
@@ -112,7 +86,7 @@ public class CadastroTurmaActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.mn_limpar:
                 limparCampos();
                 return true;
@@ -125,9 +99,24 @@ public class CadastroTurmaActivity extends AppCompatActivity {
     }
 
     private void validarCampos() {
-        if(edCodigoTurma.getText().toString().equals("")){
+        if (edCodigoTurma.getText().toString().equals("")) {
             edCodigoTurma.setError("Informe o Código da turma!");
             edCodigoTurma.requestFocus();
+            return;
+        }
+
+        if (spCursos.getSelectedItem() == null) {
+            Util.customSnackBar(lnCadastroTurmas, "Selecione um curso!", 0);
+            return;
+        }
+
+        if (spTurno.getSelectedItem() == null) {
+            Util.customSnackBar(lnCadastroTurmas, "Selecione um turno!", 0);
+            return;
+        }
+
+        if (spRegime.getSelectedItem() == null) {
+            Util.customSnackBar(lnCadastroTurmas, "Selecione um regime!", 0);
             return;
         }
 
@@ -138,14 +127,14 @@ public class CadastroTurmaActivity extends AppCompatActivity {
         Turma turma = new Turma();
         turma.setCodigo(Integer.parseInt(edCodigoTurma.getText().toString()));
         turma.setCurso(spCursos.getSelectedItem().toString());
-        turma.setPeriodo(spPeriodo.getSelectedItem().toString());
         turma.setTurno(spTurno.getSelectedItem().toString());
+        turma.setRegime(spRegime.getSelectedItem().toString());
 
-        if(TurmaDAO.salvar(turma) > 0) {
+        if (TurmaDAO.salvar(turma) > 0) {
             setResult(RESULT_OK);
             finish();
-        }else
-            Util.customSnackBar(lnCadastroTurmas, "Erro ao salvar a turma ("+turma.getCodigo()+") " +
+        } else
+            Util.customSnackBar(lnCadastroTurmas, "Erro ao salvar a turma (" + turma.getCodigo() + ") " +
                     "verifique o log", 0);
     }
 

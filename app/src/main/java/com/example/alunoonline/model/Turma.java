@@ -2,23 +2,28 @@ package com.example.alunoonline.model;
 
 import com.orm.SugarRecord;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Turma extends SugarRecord {
 
     private int codigo;
     private String curso;
-    private String periodo;
     private String turno;
+    private String regime;
+    private List<Aluno> alunos;
+    private List<Disciplina> disciplinas;
 
     public Turma() {
     }
 
-    public Turma(int codigo, String curso, String periodo, String turno) {
+    public Turma(int codigo, String curso, String turno, String regime, List<Aluno> alunos, List<Disciplina> disciplinas) {
         this.codigo = codigo;
         this.curso = curso;
-        this.periodo = periodo;
         this.turno = turno;
+        this.regime = regime;
+        this.alunos = alunos;
+        this.disciplinas = disciplinas;
     }
 
     public int getCodigo() {
@@ -37,20 +42,36 @@ public class Turma extends SugarRecord {
         this.curso = curso;
     }
 
-    public String getPeriodo() {
-        return periodo;
-    }
-
-    public void setPeriodo(String periodo) {
-        this.periodo = periodo;
-    }
-
     public String getTurno() {
         return turno;
     }
 
     public void setTurno(String turno) {
         this.turno = turno;
+    }
+
+    public String getRegime() {
+        return regime;
+    }
+
+    public void setRegime(String regime) {
+        this.regime = regime;
+    }
+
+    public List<Aluno> getAlunos() {
+        return alunos;
+    }
+
+    public void setAlunos(List<Aluno> alunos) {
+        this.alunos = alunos;
+    }
+
+    public List<Disciplina> getDisciplinas() {
+        return disciplinas;
+    }
+
+    public void setDisciplinas(List<Disciplina> disciplinas) {
+        this.disciplinas = disciplinas;
     }
 
     @Override

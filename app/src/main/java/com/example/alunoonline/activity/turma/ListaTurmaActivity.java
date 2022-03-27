@@ -15,12 +15,8 @@ import android.view.MenuItem;
 import android.widget.LinearLayout;
 
 import com.example.alunoonline.R;
-import com.example.alunoonline.activity.aluno.CadastroAlunoActivity;
-import com.example.alunoonline.adapters.AlunoAdapter;
 import com.example.alunoonline.adapters.TurmaAdapter;
-import com.example.alunoonline.dao.AlunoDAO;
 import com.example.alunoonline.dao.TurmaDAO;
-import com.example.alunoonline.model.Aluno;
 import com.example.alunoonline.model.Turma;
 import com.example.alunoonline.util.Util;
 
@@ -42,7 +38,7 @@ public class ListaTurmaActivity extends AppCompatActivity {
         atualizaListaTurmas();
     }
 
-    public void atualizaListaTurmas(){
+    public void atualizaListaTurmas() {
         List<Turma> listaTurmas = new ArrayList<>();
         listaTurmas = TurmaDAO.retornaTurmas("", new String[]{}, "codigo asc");
         Log.e("PHS", "Tamanho da lista: " + listaTurmas.size());
@@ -63,7 +59,7 @@ public class ListaTurmaActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.mn_add:
                 abrirCadastroTurma();
                 return true;
@@ -81,7 +77,7 @@ public class ListaTurmaActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(resultCode == RESULT_OK){
+        if (resultCode == RESULT_OK) {
             Util.customSnackBar(lnListaTurmas, "Turma salva com sucesso!", 1);
         }
         atualizaListaTurmas();

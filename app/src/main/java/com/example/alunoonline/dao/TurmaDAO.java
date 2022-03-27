@@ -9,20 +9,20 @@ import java.util.List;
 
 public class TurmaDAO {
 
-    public static long salvar(Turma turma){
+    public static long salvar(Turma turma) {
         try {
             return turma.save();
-        }catch (Exception ex) {
+        } catch (Exception ex) {
             Log.e("Erro", "Erro ao salvar a turma: " + ex.getMessage());
             return -1;
         }
     }
 
-    public static List<Turma> retornaTurmas(String where, String[]whereArgs, String orderBy){
+    public static List<Turma> retornaTurmas(String where, String[] whereArgs, String orderBy) {
         List<Turma> list = new ArrayList<>();
-        try{
+        try {
             list = Turma.find(Turma.class, where, whereArgs, "", orderBy, "");
-        }catch (Exception ex){
+        } catch (Exception ex) {
             Log.e("Erro", "Erro ao retornar lista de turmas: " + ex.getMessage());
 
         }
