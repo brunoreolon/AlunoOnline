@@ -3,6 +3,8 @@ package com.example.alunoonline.dao;
 import android.util.Log;
 
 import com.example.alunoonline.model.Aluno;
+import com.orm.query.Condition;
+import com.orm.query.Select;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +20,9 @@ public class AlunoDAO {
         }
     }
 
-    public static Aluno getAluno(int id){
+    public static Aluno getAluno(int ra){
         try {
-            return Aluno.findById(Aluno.class, id);
+            Aluno.findById(Aluno.class, ra);
         }catch (Exception ex){
             Log.e("Erro", "Erro ao retornar o aluno: " + ex.getMessage());
             return null;

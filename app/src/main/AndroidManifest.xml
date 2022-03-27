@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AlunoOnline">
         <activity
+            android:name=".activity.nota.LancamentoNotasActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.turma.ListaTurmaActivity"
             android:exported="false" />
         <activity
@@ -43,6 +46,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="true" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="com.example.alunoonline.model" />
+        <meta-data
+            android:name="DATABASE"
+            android:value="aluno_online.db" />
+        <meta-data
+            android:name="VERSION"
+            android:value="1" />
     </application>
 
 </manifest>

@@ -13,6 +13,7 @@ import com.example.alunoonline.activity.aluno.CadastroAlunoActivity;
 import com.example.alunoonline.activity.aluno.ListaAlunoActivity;
 import com.example.alunoonline.activity.disciplina.CadastroDisciplinaActivity;
 import com.example.alunoonline.activity.disciplina.ListaDisciplinaActivity;
+import com.example.alunoonline.activity.nota.LancamentoNotasActivity;
 import com.example.alunoonline.activity.professor.CadastroProfessorActivity;
 import com.example.alunoonline.activity.professor.ListaProfessorActivity;
 import com.example.alunoonline.activity.turma.CadastroTurmaActivity;
@@ -56,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.mn_nota:
-//                intent = new Intent(this, CadastroNotaActivity.class);
-//                startActivity(intent);
+                intent = new Intent(this, LancamentoNotasActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.mn_frequencia:
 //                intent = new Intent(this, CadastroFrequenciasctivity.class);

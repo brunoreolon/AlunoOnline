@@ -15,5 +15,10 @@
     <string name="turno">Turno</string>
     <string name="selecioneTurno">Selecione o Turno</string>
     <string name="selecioneCurso">Selecione o Curso</string>
+    <string name="selecioneRegime">Selecione o Regime</string>
+    <string name="nota1">1ª Nota</string>
+    <string name="nota2">2ª Nota</string>
+    <string name="regime">Regime</string>
+    <string name="selecioneAluno">Selecione o Aluno</string>
 
 </resources>
