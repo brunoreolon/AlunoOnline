@@ -16,7 +16,6 @@ import android.widget.LinearLayout;
 
 import com.example.alunoonline.R;
 import com.example.alunoonline.adapters.DisciplinaAdapter;
-import com.example.alunoonline.adapters.ProfessorAdapter;
 import com.example.alunoonline.dao.DisciplinaDAO;
 import com.example.alunoonline.model.Disciplina;
 import com.example.alunoonline.util.Util;
@@ -39,7 +38,7 @@ public class ListaDisciplinaActivity extends AppCompatActivity {
         atualizaListaDisciplinas();
     }
 
-    public void atualizaListaDisciplinas(){
+    public void atualizaListaDisciplinas() {
         List<Disciplina> listaDisciplinas = new ArrayList<>();
         listaDisciplinas = DisciplinaDAO.retornaDisciplinas("", new String[]{}, "nome asc");
         Log.e("PHS", "Tamanho da lista: " + listaDisciplinas.size());
@@ -60,7 +59,7 @@ public class ListaDisciplinaActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.mn_add:
                 abrirCadastroDisciplina();
                 return true;
@@ -78,7 +77,7 @@ public class ListaDisciplinaActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(resultCode == RESULT_OK){
+        if (resultCode == RESULT_OK) {
             Util.customSnackBar(lnListaDisciplinas, "Disciplina salva com sucesso!", 1);
         }
         atualizaListaDisciplinas();

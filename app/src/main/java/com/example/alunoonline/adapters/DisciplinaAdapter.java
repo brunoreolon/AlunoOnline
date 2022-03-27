@@ -14,7 +14,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.List;
 
-public class DisciplinaAdapter extends RecyclerView.Adapter<DisciplinaAdapter.DisciplinaViewHolder>{
+public class DisciplinaAdapter extends RecyclerView.Adapter<DisciplinaAdapter.DisciplinaViewHolder> {
 
     private List<Disciplina> listaDisciplinas;
     private Context context;
@@ -29,14 +29,16 @@ public class DisciplinaAdapter extends RecyclerView.Adapter<DisciplinaAdapter.Di
         TextInputEditText edNomeDisciplina;
         TextInputEditText edProfessor;
         TextInputEditText edCargaHoraria;
+        TextInputEditText edTotDiasLetivos;
 
         public DisciplinaViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            edCodigoDisciplina = (TextInputEditText)itemView.findViewById(R.id.edCodigoDisciplina);
-            edNomeDisciplina = (TextInputEditText)itemView.findViewById(R.id.edNomeDisciplina);
-            edProfessor =  (TextInputEditText)itemView.findViewById(R.id.edNomeProfessor);
-            edCargaHoraria = (TextInputEditText)itemView.findViewById(R.id.edCargaHoraria);
+            edCodigoDisciplina = (TextInputEditText) itemView.findViewById(R.id.edCodigoDisciplina);
+            edNomeDisciplina = (TextInputEditText) itemView.findViewById(R.id.edNomeDisciplina);
+            edProfessor = (TextInputEditText) itemView.findViewById(R.id.edNomeProfessor);
+            edCargaHoraria = (TextInputEditText) itemView.findViewById(R.id.edCargaHoraria);
+            edTotDiasLetivos = (TextInputEditText) itemView.findViewById(R.id.edTotDiasLetivos);
         }
     }
 
@@ -59,6 +61,7 @@ public class DisciplinaAdapter extends RecyclerView.Adapter<DisciplinaAdapter.Di
         holder.edNomeDisciplina.setText(disciplina.getNome());
         holder.edProfessor.setText(disciplina.getProfessor());
         holder.edCargaHoraria.setText(String.valueOf(disciplina.getCargaHoraria()));
+        holder.edTotDiasLetivos.setText(String.valueOf(disciplina.getTotDiasLetivos()));
     }
 
     @Override
