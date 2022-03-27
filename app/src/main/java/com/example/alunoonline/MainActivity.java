@@ -9,14 +9,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.example.alunoonline.activity.aluno.CadastroAlunoActivity;
 import com.example.alunoonline.activity.aluno.ListaAlunoActivity;
-import com.example.alunoonline.activity.disciplina.CadastroDisciplinaActivity;
 import com.example.alunoonline.activity.disciplina.ListaDisciplinaActivity;
 import com.example.alunoonline.activity.nota.LancamentoNotasActivity;
-import com.example.alunoonline.activity.professor.CadastroProfessorActivity;
 import com.example.alunoonline.activity.professor.ListaProfessorActivity;
-import com.example.alunoonline.activity.turma.CadastroTurmaActivity;
 import com.example.alunoonline.activity.turma.ListaTurmaActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.mn_aluno:
                 intent = new Intent(this, ListaAlunoActivity.class);
                 startActivity(intent);
@@ -73,12 +69,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.mn_lDisciplinas:
-//                intent = new Intent(this, ListaDisciplinaActivity.class);
-//                startActivity(intent);
+                intent = new Intent(this, ListaDisciplinaActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.mn_lTurmas:
-//                intent = new Intent(this, ListaTurmaActivity.class);
-//                startActivity(intent);
+                intent = new Intent(this, ListaTurmaActivity.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
