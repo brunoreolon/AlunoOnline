@@ -30,6 +30,7 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
     private TextInputEditText edTotDiasLetivos;
 
     private MaterialSpinner spProfessor;
+    private MaterialSpinner spCurso;
 
     private LinearLayout lnCadastroDisciplinas;
 
@@ -52,13 +53,27 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
 
     private void iniciaSpinner() {
         spProfessor = findViewById(R.id.spProfessor);
+        spCurso = findViewById(R.id.spCurso);
 
         professores = ProfessorDAO.retornaProfessores("", new String[]{}, "");
+
+        String cursos[] = new String[]{
+                "Análise e Desenv. Sistemas",
+                "Administração",
+                "Ciências Contábeis",
+                "Direito",
+                "Farmácia",
+                "Nutrição"
+        };
 
         ArrayAdapter adaptersProfessor = new ArrayAdapter(this,
                 android.R.layout.simple_list_item_1, professores);
 
+        ArrayAdapter adaptersCursos = new ArrayAdapter(this,
+                android.R.layout.simple_list_item_1, cursos);
+
         spProfessor.setAdapter(adaptersProfessor);
+        spCurso.setAdapter(adaptersCursos);
     }
 
     @Override
@@ -101,6 +116,11 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
             return;
         }
 
+        if (spCurso.getSelectedItem() == null) {
+            Util.customSnackBar(lnCadastroDisciplinas, "Selecione um curso!", 0);
+            return;
+        }
+
         if (edCargaHoraria.getText().toString().equals("")) {
             edCargaHoraria.setError("Informe a Carga horária da disciplina!");
             edCargaHoraria.requestFocus();
@@ -121,6 +141,7 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
         disciplina.setCodigo(Integer.parseInt(edCodigoDisciplina.getText().toString()));
         disciplina.setNome(edNomeDisciplina.getText().toString());
         disciplina.setProfessor(spProfessor.getSelectedItem().toString());
+        disciplina.setCurso(spCurso.getSelectedItem().toString());
         disciplina.setCargaHoraria(Integer.parseInt(edCargaHoraria.getText().toString()));
         disciplina.setTotDiasLetivos(Integer.parseInt(edTotDiasLetivos.getText().toString()));
 

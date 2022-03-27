@@ -32,8 +32,10 @@ public class CadastroAlunoActivity extends AppCompatActivity {
     private TextInputEditText edCpfAluno;
     private TextInputEditText edDtNascAluno;
     private TextInputEditText edDtMatAluno;
+
     private MaterialSpinner spCursos;
     private MaterialSpinner spPeriodo;
+
     private LinearLayout lnCadastroAlunos;
 
     private int vAno;
@@ -79,11 +81,13 @@ public class CadastroAlunoActivity extends AppCompatActivity {
                 "1ª Série",
                 "2ª Série",
                 "3ª Série",
-                "4ª Série"
+                "4ª Série",
+                "5ª Série"
         };
 
         ArrayAdapter adapterCursos = new ArrayAdapter(this,
                 android.R.layout.simple_list_item_1, cursos);
+
         ArrayAdapter adapterPeriodo = new ArrayAdapter(this,
                 android.R.layout.simple_list_item_1, periodos);
 

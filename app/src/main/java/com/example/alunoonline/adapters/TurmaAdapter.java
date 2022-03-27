@@ -57,7 +57,7 @@ public class TurmaAdapter extends RecyclerView.Adapter<TurmaAdapter.TurmaViewHol
         holder.edCodigoTurma.setText(String.valueOf(turma.getCodigo()));
         holder.edCursoTurma.setText(turma.getCurso());
         holder.edTurnoTurma.setText(turma.getTurno());
-        holder.edRegimeTurma.setText(turma.getTurno());
+        holder.edRegimeTurma.setText(turma.getRegime());
     }
 
     @Override

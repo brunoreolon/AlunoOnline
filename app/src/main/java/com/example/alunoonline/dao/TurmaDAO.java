@@ -2,6 +2,7 @@ package com.example.alunoonline.dao;
 
 import android.util.Log;
 
+import com.example.alunoonline.model.Aluno;
 import com.example.alunoonline.model.Turma;
 
 import java.util.ArrayList;
@@ -27,5 +28,25 @@ public class TurmaDAO {
 
         }
         return list;
+    }
+
+    public static String getRegimeTurma(int ra) {
+        List<Turma> turma = new ArrayList<>();
+        try {
+            turma = Turma.find(Turma.class, "codigo = ? and regime = ? ", String.valueOf(ra));
+        } catch (Exception ex) {
+            Log.e("Erro", "Erro ao retornar o regime da turma: " + ex.getMessage());
+            return null;
+        }
+
+        return turma.get(0).getRegime();
+    }
+
+    public static Turma getRegimeTurmaAlunoCadastrado(int raAluno, int codigoTurma) {
+        List<Turma> turma = new ArrayList<>();
+
+        turma = Turma.find(Turma.class, "codigo = ?", String.valueOf(codigoTurma));
+
+        return turma.get(0);
     }
 }

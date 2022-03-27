@@ -22,8 +22,12 @@
     <string name="selecioneAluno">Selecione o Aluno</string>
     <string name="dtCursoAluno">Curso</string>
     <string name="aluno">Aluno</string>
-    <string name="buscaAluno">Buscar Aluno</string>
+    <string name="buscaAluno">Informe o Ra</string>
     <string name="totalDiasLetivos">Dias Letivos</string>
     <string name="selecioneProfessor">Selecione o Professor</string>
+    <string name="selecioneDisciplina">Selecione a disciplina</string>
+    <string name="disciplina">Disciplina</string>
+    <string name="situacao">Situação Final</string>
+    <string name="alunos">Adcionar Alunos</string>
 
 </resources>

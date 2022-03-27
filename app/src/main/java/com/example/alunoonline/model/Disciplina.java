@@ -9,19 +9,20 @@ public class Disciplina extends SugarRecord {
     private int codigo;
     private String nome;
     private String professor;
+    private String curso;
     private int cargaHoraria;
     private int totDiasLetivos;
 
     public Disciplina() {
     }
 
-    public Disciplina(int codigo, String nome, String professor, int cargaHoraria, int totDiasLetivos) {
+    public Disciplina(int codigo, String nome, String professor, String curso, int cargaHoraria, int totDiasLetivos) {
         this.codigo = codigo;
         this.nome = nome;
         this.professor = professor;
+        this.curso = curso;
         this.cargaHoraria = cargaHoraria;
         this.totDiasLetivos = totDiasLetivos;
-
     }
 
     public int getCodigo() {
@@ -48,6 +49,14 @@ public class Disciplina extends SugarRecord {
         this.professor = professor;
     }
 
+    public String getCurso() {
+        return curso;
+    }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
+
     public int getCargaHoraria() {
         return cargaHoraria;
     }
@@ -62,6 +71,11 @@ public class Disciplina extends SugarRecord {
 
     public void setTotDiasLetivos(int totDiasLetivos) {
         this.totDiasLetivos = totDiasLetivos;
+    }
+
+    @Override
+    public String toString() {
+        return this.nome;
     }
 
     @Override

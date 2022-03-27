@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AlunoOnline">
         <activity
+            android:name=".activity.alunos_turma.ListaAlunosTurmaActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.nota.LancamentoNotasActivity"
             android:exported="false" />
         <activity

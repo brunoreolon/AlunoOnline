@@ -38,7 +38,7 @@ public class ListaAlunoActivity extends AppCompatActivity {
         atualizaListaAlunos();
     }
 
-    public void atualizaListaAlunos(){
+    public void atualizaListaAlunos() {
         List<Aluno> listaAlunos = new ArrayList<>();
         listaAlunos = AlunoDAO.retornaAlunos("", new String[]{}, "nome asc");
         Log.e("PHS", "Tamanho da lista: " + listaAlunos.size());
@@ -59,7 +59,7 @@ public class ListaAlunoActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.mn_add:
                 abrirCadastroAluno();
                 return true;
@@ -77,7 +77,7 @@ public class ListaAlunoActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(resultCode == RESULT_OK){
+        if (resultCode == RESULT_OK) {
             Util.customSnackBar(lnListaAlunos, "Aluno salvo com sucesso!", 1);
         }
         atualizaListaAlunos();

@@ -4,83 +4,121 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.alunoonline.R;
 import com.example.alunoonline.dao.AlunoDAO;
+import com.example.alunoonline.dao.DisciplinaDAO;
 import com.example.alunoonline.dao.NotaDAO;
 import com.example.alunoonline.dao.TurmaDAO;
 import com.example.alunoonline.model.Aluno;
+import com.example.alunoonline.model.Disciplina;
 import com.example.alunoonline.model.Nota;
 import com.example.alunoonline.model.Turma;
 import com.example.alunoonline.util.Util;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import fr.ganfra.materialspinner.MaterialSpinner;
 
 public class LancamentoNotasActivity extends AppCompatActivity {
 
-    private MaterialSpinner spRegime;
-    private MaterialSpinner spAlunos;
+    private TextInputLayout edBuscaAluno;
+
+    private TextView tvNomeAluno;
+    private TextView tvRaAluno;
+
+    private MaterialSpinner spCurso;
+    private MaterialSpinner spDisciplinas;
+
     private TextInputLayout edNota1;
     private TextInputLayout edNota2;
+
     private LinearLayout lnLancamentoNotas;
+    private LinearLayout llBuscaAluno;
+
+    private Aluno aluno;
+    private String regimeTurma;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lancamento_notas);
 
+        edBuscaAluno = findViewById(R.id.edBuscaAluno);
+        tvNomeAluno = findViewById(R.id.tvNomeAlunoBusca);
+        tvRaAluno = findViewById(R.id.tvRaAlunoBusca);
         edNota1 = findViewById(R.id.edNota1);
         edNota2 = findViewById(R.id.edNota2);
         lnLancamentoNotas = findViewById(R.id.lnLancamentoNotas);
+        llBuscaAluno = findViewById(R.id.llBuscaAluno);
+    }
+
+    public void buscarAluno(View view) {
+
+        if (edBuscaAluno.getEditText().getText().toString().equals("")) {
+            edBuscaAluno.setError("Informe o Ra!");
+            edBuscaAluno.requestFocus();
+            return;
+        }
+
+        aluno = AlunoDAO.getAlunoRa(Integer.parseInt(edBuscaAluno.getEditText().getText().toString()));
+
+        if (aluno == null) {
+            Util.customSnackBar(lnLancamentoNotas, "Aluno não encontrado!", 0);
+
+            llBuscaAluno.setVisibility(View.GONE);
+            return;
+        }
+
+        edBuscaAluno.getEditText().setText("");
+        llBuscaAluno.setVisibility(View.VISIBLE);
+        tvNomeAluno.setText("Nome: " + aluno.getNome().toString());
+        tvRaAluno.setText("RA: " + String.valueOf(aluno.getRa()));
 
         iniciaSpinners();
     }
 
     private void iniciaSpinners() {
-        spRegime = findViewById(R.id.spRegime);
-        spAlunos = findViewById(R.id.spAlunos);
+        spCurso = findViewById(R.id.spCurso);
+        spDisciplinas = findViewById(R.id.spDisciplinas);
 
-        String regimes[] = new String[]{
-                "Semestral",
-                "Anual",
-        };
+        String curso = aluno.getCurso();
 
-        List<Aluno> alunos = new ArrayList<>();
-        alunos = AlunoDAO.retornaAlunos("", new String[]{}, "nome asc");
+        List<Disciplina> disciplinas = DisciplinaDAO.getDisciplinasCurso(curso);
 
-        ArrayAdapter adapterRegime = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1, regimes);
+        ArrayAdapter adapterCurso = new ArrayAdapter(this,
+                android.R.layout.simple_list_item_1, new String[]{curso});
 
-        ArrayAdapter adapterAlunos = new ArrayAdapter(this, android.R.layout.simple_list_item_1, alunos);
+        ArrayAdapter adapterDisciplinas = new ArrayAdapter(this,
+                android.R.layout.simple_list_item_1, disciplinas);
 
-        spRegime.setAdapter(adapterRegime);
-        spAlunos.setAdapter(adapterAlunos);
+        spCurso.setAdapter(adapterCurso);
+        spDisciplinas.setAdapter(adapterDisciplinas);
 
-        spRegime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spCurso.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (i == 0) {
+                Turma turma = TurmaDAO.getRegimeTurmaAlunoCadastrado(aluno.getRa(), 123);
+                System.out.println("========= " + turma.getCodigo());
+                System.out.println("--------- " + turma.getRegime());
+
+                if (turma.getRegime() == "Semestral") {
                     edNota1.setVisibility(View.VISIBLE);
                     edNota1.setHint("1ª Nota");
 
                     edNota2.setVisibility(View.VISIBLE);
                 }
 
-                if (i == 1) {
+                if (turma.getRegime() == "Anual") {
                     edNota1.setVisibility(View.VISIBLE);
                     edNota1.setHint("Nota");
 
@@ -90,6 +128,7 @@ public class LancamentoNotasActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
     }
@@ -117,13 +156,8 @@ public class LancamentoNotasActivity extends AppCompatActivity {
     }
 
     private void validarCampos() {
-        if (spAlunos.getSelectedItem() == null) {
-            Util.customSnackBar(lnLancamentoNotas, "Selecione um aluno!", 0);
-            return;
-        }
-
-        if (spRegime.getSelectedItem() == null) {
-            Util.customSnackBar(lnLancamentoNotas, "Selecione um regime!", 0);
+        if (spCurso.getSelectedItem() == null) {
+            Util.customSnackBar(lnLancamentoNotas, "Selecione um curso!", 0);
             return;
         }
 
@@ -146,27 +180,33 @@ public class LancamentoNotasActivity extends AppCompatActivity {
 
     private void salvarNota() {
         Nota nota = new Nota();
-        nota.setNota1(Float.parseFloat(edNota1.getEditText().getText().toString()));
 
-        if (edNota2.getVisibility() != View.INVISIBLE) {
-            nota.setNota2(Float.parseFloat(edNota2.getEditText().getText().toString()));
+        float n1 = Float.parseFloat(edNota1.getEditText().getText().toString());
+
+        nota.setNota1(n1);
+        nota.setMedia(n1);
+
+        if (edNota2.getVisibility() == View.VISIBLE) {
+            float n2 = Float.parseFloat(edNota2.getEditText().getText().toString());
+
+            nota.setNota2(n2);
+
+            nota.setMedia((n1 + n2) / 2);
         }
 
-        nota.setNota2(0);
-
-        int ra = ((Aluno) spAlunos.getSelectedItem()).getRa();
-
-        nota.setAluno(AlunoDAO.getAluno(ra));
+        System.out.println(">>>>>> " + nota.getMedia());
+        nota.setAluno(aluno);
 
         if (NotaDAO.salvar(nota) > 0) {
             setResult(RESULT_OK);
             finish();
         } else
-            Util.customSnackBar(lnLancamentoNotas, "Erro ao salvar a turma (" + nota.getId() + ") " +
+            Util.customSnackBar(lnLancamentoNotas, "Erro ao salvar a nota (" + nota.getId() + ") " +
                     "verifique o log", 0);
     }
 
     private void limparCampos() {
+        edBuscaAluno.getEditText().setText("");
         edNota1.getEditText().setText("");
         edNota2.getEditText().setText("");
     }

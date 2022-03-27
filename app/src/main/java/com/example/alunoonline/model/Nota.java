@@ -6,7 +6,7 @@ public class Nota extends SugarRecord {
 
     private float nota1;
     private float nota2;
-
+    private float media;
     private Aluno aluno;
 
     public Nota() {
@@ -35,6 +35,14 @@ public class Nota extends SugarRecord {
 
     public void setNota2(float nota2) {
         this.nota2 = nota2;
+    }
+
+    public float getMedia() {
+        return media;
+    }
+
+    public void setMedia(float media) {
+        this.media = media;
     }
 
     public Aluno getAluno() {

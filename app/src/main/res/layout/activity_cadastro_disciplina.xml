@@ -57,6 +57,16 @@
         app:ms_hint="@string/selecioneProfessor"
         app:ms_multiline="false" />
 
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:id="@+id/spCurso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:ms_arrowColor="?attr/colorPrimary"
+        app:ms_floatingLabelText="@string/curso"
+        app:ms_hint="@string/selecioneCurso"
+        app:ms_multiline="false" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

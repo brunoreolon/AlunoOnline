@@ -18,7 +18,7 @@ public class AlunoDAO {
         }
     }
 
-    public static Aluno getAluno(int ra) {
+    public static Aluno getAlunoRa(int ra) {
         List<Aluno> aluno = new ArrayList<>();
         try {
             aluno = Aluno.find(Aluno.class, "ra = ?", String.valueOf(ra));
@@ -51,12 +51,12 @@ public class AlunoDAO {
         return list;
     }
 
-    public static boolean delete(Aluno aluno) {
-        try {
-            return Aluno.delete(aluno);
-        } catch (Exception ex) {
-            Log.e("Erro", "Erro ao deletar um aluno: " + ex.getMessage());
-            return false;
+    public static long updateAluno(Aluno aluno) {
+        try{
+            return Aluno.update(aluno);
+        }catch (Exception ex){
+            Log.e("Erro", "Erro ao atualizar o aluno: "+ ex.getMessage());
+            return -1;
         }
     }
 }

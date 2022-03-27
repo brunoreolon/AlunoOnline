@@ -12,27 +12,32 @@ import android.widget.LinearLayout;
 
 import com.example.alunoonline.R;
 import com.example.alunoonline.dao.TurmaDAO;
+import com.example.alunoonline.model.Aluno;
 import com.example.alunoonline.model.Turma;
 import com.example.alunoonline.util.Util;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import fr.ganfra.materialspinner.MaterialSpinner;
 
 public class CadastroTurmaActivity extends AppCompatActivity {
 
+    private TextInputLayout edBuscaAluno;
     private TextInputEditText edCodigoTurma;
     private LinearLayout lnCadastroTurmas;
     private MaterialSpinner spCursos;
     private MaterialSpinner spTurno;
     private MaterialSpinner spRegime;
 
+    private Aluno aluno;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_turma);
 
+        edBuscaAluno = findViewById(R.id.edBuscaAluno);
         edCodigoTurma = findViewById(R.id.edCodigoTurma);
-        lnCadastroTurmas = findViewById(R.id.lnCadastroTurmas);
 
         iniciaSpinners();
     }

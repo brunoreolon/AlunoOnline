@@ -28,6 +28,7 @@ public class DisciplinaAdapter extends RecyclerView.Adapter<DisciplinaAdapter.Di
         TextInputEditText edCodigoDisciplina;
         TextInputEditText edNomeDisciplina;
         TextInputEditText edProfessor;
+        TextInputEditText edCurso;
         TextInputEditText edCargaHoraria;
         TextInputEditText edTotDiasLetivos;
 
@@ -37,6 +38,7 @@ public class DisciplinaAdapter extends RecyclerView.Adapter<DisciplinaAdapter.Di
             edCodigoDisciplina = (TextInputEditText) itemView.findViewById(R.id.edCodigoDisciplina);
             edNomeDisciplina = (TextInputEditText) itemView.findViewById(R.id.edNomeDisciplina);
             edProfessor = (TextInputEditText) itemView.findViewById(R.id.edNomeProfessor);
+            edCurso = (TextInputEditText) itemView.findViewById(R.id.edNomeProfessor);
             edCargaHoraria = (TextInputEditText) itemView.findViewById(R.id.edCargaHoraria);
             edTotDiasLetivos = (TextInputEditText) itemView.findViewById(R.id.edTotDiasLetivos);
         }
@@ -60,6 +62,7 @@ public class DisciplinaAdapter extends RecyclerView.Adapter<DisciplinaAdapter.Di
         holder.edCodigoDisciplina.setText(String.valueOf(disciplina.getCodigo()));
         holder.edNomeDisciplina.setText(disciplina.getNome());
         holder.edProfessor.setText(disciplina.getProfessor());
+        holder.edCurso.setText(disciplina.getCurso());
         holder.edCargaHoraria.setText(String.valueOf(disciplina.getCargaHoraria()));
         holder.edTotDiasLetivos.setText(String.valueOf(disciplina.getTotDiasLetivos()));
     }
