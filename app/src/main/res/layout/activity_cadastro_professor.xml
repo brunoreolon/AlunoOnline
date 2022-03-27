@@ -8,19 +8,41 @@
     android:orientation="vertical"
     android:id="@+id/lnCadastroProfessores">
 
-    <com.google.android.material.textfield.TextInputLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="@string/ra">
+        android:orientation="horizontal">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:id="@+id/edRaProfessor"
-            android:inputType="number"
-            android:backgroundTint="@color/white"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_margin="10dp"
+            android:hint="@string/ra">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edRaProfessor"
+                android:inputType="number"
+                android:backgroundTint="@color/white"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="@string/cpf">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edCpfProfessor"
+                android:inputType="number"
+                android:backgroundTint="@color/white"/>
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -32,20 +54,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/edNomeProfessor"
-            android:backgroundTint="@color/white"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="@string/cpf">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/edCpfProfessor"
-            android:inputType="number"
             android:backgroundTint="@color/white"/>
     </com.google.android.material.textfield.TextInputLayout>
 

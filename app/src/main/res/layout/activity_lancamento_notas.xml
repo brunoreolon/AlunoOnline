@@ -9,23 +9,23 @@
     tools:context=".activity.nota.LancamentoNotasActivity">
 
     <fr.ganfra.materialspinner.MaterialSpinner
+        android:id="@+id/spCursos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:ms_arrowColor="?attr/colorPrimary"
+        app:ms_floatingLabelText="@string/curso"
+        app:ms_hint="@string/selecioneCurso"
+        app:ms_multiline="false" />
+
+    <fr.ganfra.materialspinner.MaterialSpinner
         android:id="@+id/spAlunos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         app:ms_arrowColor="?attr/colorPrimary"
-        app:ms_floatingLabelText="@string/regime"
+        app:ms_floatingLabelText="@string/aluno"
         app:ms_hint="@string/selecioneAluno"
-        app:ms_multiline="false" />
-
-    <fr.ganfra.materialspinner.MaterialSpinner
-        android:id="@+id/spRegime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        app:ms_arrowColor="?attr/colorPrimary"
-        app:ms_floatingLabelText="@string/regime"
-        app:ms_hint="@string/selecioneRegime"
         app:ms_multiline="false" />
 
     <LinearLayout
@@ -34,29 +34,29 @@
         android:orientation="horizontal">
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edNota1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:hint="@string/nota1"
-            android:visibility="gone"
-            android:id="@+id/edNota1">
+            android:visibility="gone">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
-                android:inputType="number"/>
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edNota2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:hint="@string/nota2"
-            android:visibility="gone"
-            android:id="@+id/edNota2">
+            android:visibility="gone">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
